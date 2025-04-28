@@ -11,51 +11,55 @@
   }
   
   /* Navbar Styling */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000;
-    padding: 22px 30px;
-    width: 100%;
-    position: fixed;           /* Fixes navbar to the top */
-    top: 0;
-    z-index: 10;               /* Ensures the navbar stays above other content */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
-  
-  }
-  
-  /* Navbar Brand (Firm Name) */
-  .navbar-brand {  
-    font-size: 1.5rem;                  
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  /* Navbar Menu */          
-  .navbar-menu {
-    list-style: none;
-    display: flex;
-    gap: 65px;
-    margin-right: 135px;
-  }
-  
-  /* Navbar Menu Links */
-  .navbar-menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-  }
-  
-  /* Hover Effect for Links */
-  .navbar-menu a:hover {
-    color: #ff9800;
-  }
-  
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 22px 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+/* Navbar Brand */
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
 
+/* Navbar Menu */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 65px;
+  margin-right: 135px;
+}
+
+/* Navbar Menu Links */
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+/* Hover Effect */
+.navbar-menu a:hover {
+  color: black;
+}
+
+/* Hamburger Icon - hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
 
 /* Hero Section Styling */
 .hero-section {
@@ -105,8 +109,8 @@
 .hero-btn {
   padding: 10px 25px;
   font-size: 1rem;
-  color: #333;
-  background-color: #ff9800;
+  color: white;
+  background-color: black;
   border: none;
   border-radius: 4px;
   text-decoration: none;
@@ -185,7 +189,7 @@
   display: inline-block;
   margin-top: 40px;
   padding: 15px 30px;
-  background: orange;
+  background: black;
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
@@ -207,7 +211,7 @@
 /* Our Services Section Styling */
 /* OUR SERVICES SECTION */
 .our-services {
-  background: linear-gradient(135deg, #005bea, #00c6fb);
+  background-color: #141e30; 
   color: #fff;
   padding: 80px 20px;
   text-align: center;
@@ -261,7 +265,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(0, 91, 234, 0.8), rgba(0, 198, 251, 0.8));
+  background: rgba(0, 91, 234, 0.1);
   clip-path: circle(150px at 50% -50%);
   z-index: 0;
   transition: all 0.5s ease-in-out;
@@ -273,7 +277,7 @@
 
 .service-card .service-icon {
   font-size: 3rem;
-  color: #005bea;
+  color: black;
   background: #e0f0ff;
   border-radius: 50%;
   padding: 20px;
@@ -303,7 +307,7 @@
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
-  background: #005bea;
+  background: black;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
@@ -427,7 +431,7 @@
 /* Contact Section */
 .contact-section {
   padding: 60px 20px;
-  background: linear-gradient(135deg, #4a90e2, #005f99);
+  background-color:  #141e30;
   color: #fff;
 }
 
@@ -487,7 +491,7 @@
   padding: 12px;
   font-size: 1.2rem;
   color: #fff;
-  background: linear-gradient(135deg, #ff7b54, #ff4500);
+  background-color: black;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -496,7 +500,7 @@
 
 .contact-form button:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #ff4500, #ff7b54);
+  background: #333;
 }
 
 /* Info Container */
@@ -523,7 +527,7 @@
 
 .contact-info i {
   font-size: 1.5rem;
-  color: #ff7b54;
+  color: white;
 }
 
 .map iframe {
@@ -634,21 +638,30 @@
 
 
   
-  /* Responsive Navbar */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .navbar-menu {
-      flex-direction: column;
-      width: 100%;
-      margin-top: 10px;
-    }
-  
-    .navbar-menu li {
-      padding: 10px 0;
-    }
+ /* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
   }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    width: 100%;
+    margin-right: 0;
+    margin-top: 10px;
+    display: none; /* Hide menu initially */
+  }
+
+  .navbar-menu.active {
+    display: flex; /* Show menu when active */
+  }
+
+  .navbar-menu li {
+    padding: 10px 0;
+  }
+}
   
