@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: black;
   padding: 22px 30px;
   width: 100%;
   position: fixed;
@@ -48,10 +48,7 @@
   transition: color 0.3s;
 }
 
-/* Hover Effect */
-.navbar-menu a:hover {
-  color: black;
-}
+
 
 /* Hamburger Icon - hidden on desktop */
 .menu-toggle {
